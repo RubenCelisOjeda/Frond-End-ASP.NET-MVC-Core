@@ -5,13 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Home\Controllers\" />
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Service\" />
-    <Folder Include="Areas\Home\Views\" />
     <Folder Include="wwwroot\areas\home\" />
     <Folder Include="wwwroot\login\css\" />
-    <Folder Include="wwwroot\login\js\" />
     <Folder Include="wwwroot\login\lib\" />
   </ItemGroup>
 

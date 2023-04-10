@@ -9,6 +9,10 @@ namespace AppProductBooking.Controllers
         #endregion
 
         #region [Constructor]
+        public LoginController()
+        {
+
+        }
 
         #endregion
 
@@ -16,6 +20,14 @@ namespace AppProductBooking.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        #endregion
+
+        #region [JsonResult]
+        [HttpPost]
+        public JsonResult Login([FromBody] string pEntidad)
+        {
+            return Json("");
         }
         #endregion
     }
