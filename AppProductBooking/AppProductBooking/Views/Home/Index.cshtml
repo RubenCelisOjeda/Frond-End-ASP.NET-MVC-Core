@@ -2,7 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link href="~/areas/home/css/csshome.css" rel="stylesheet" />
+
+<div class="container-fluid app-margen-center">
+    <div class="row">
+
+        <div class="col-md-12 text-center mb-5">
+            <h2 class="card-title text-white">¿Hola,como deseas entrar?</h2>
+        </div>
+
+        <div class="col-md-6 text-center">
+             <button id="btnManager" class="btn btn-lg btn-outline-info card text-bg-dark mb-3" style="">
+                <div class="card-body">
+                    <h3 class="card-title">Gestionador</h3>
+                    <p class="card-text">Podras,crear ,asignar, y modificar cualquier tipo de valor o producto.</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <button id="btnRequesting" class="btn btn-lg btn-outline-success card text-bg-dark mb-3" style="">
+              <div class="card-body">
+                  <h3 class="card-title">Solicitante</h3>
+                  <p class="card-text">Podras unirte a cualquier ambiente y solicitar cualquier producto.</p>
+              </div>
+            </button>
+        </div>
+
+    </div>
 </div>

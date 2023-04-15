@@ -1,0 +1,11 @@
+﻿.app-margen-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Esto es opcional, pero puede ser útil para centrar el contenido verticalmente */
+}
+
+
+body{
+    background-color:#2a2a2a !important;
+}

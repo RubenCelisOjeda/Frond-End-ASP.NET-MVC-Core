@@ -2,7 +2,7 @@
 
 namespace AppProductBooking.Areas.Home.Controllers
 {
-    public class AppController : Controller
+    public class OptionController : Controller
     {
         public IActionResult Index()
         {
