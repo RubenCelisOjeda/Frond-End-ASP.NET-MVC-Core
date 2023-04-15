@@ -9,9 +9,7 @@
     <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Service\" />
     <Folder Include="Areas\Home\Service\" />
-    <Folder Include="Areas\Manager\Controllers\" />
     <Folder Include="Areas\Manager\Models\" />
-    <Folder Include="Areas\Manager\Views\" />
     <Folder Include="Areas\Manager\Service\" />
     <Folder Include="Areas\Requesting\Controllers\" />
     <Folder Include="Areas\Requesting\Models\" />
