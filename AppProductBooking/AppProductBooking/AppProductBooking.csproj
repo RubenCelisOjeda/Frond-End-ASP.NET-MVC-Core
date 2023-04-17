@@ -11,11 +11,8 @@
     <Folder Include="Areas\Home\Service\" />
     <Folder Include="Areas\Manager\Models\" />
     <Folder Include="Areas\Manager\Service\" />
-    <Folder Include="Areas\Requesting\Controllers\" />
     <Folder Include="Areas\Requesting\Models\" />
-    <Folder Include="Areas\Requesting\Views\" />
     <Folder Include="Areas\Requesting\Service\" />
-    <Folder Include="wwwroot\areas\home\js\" />
     <Folder Include="wwwroot\login\css\" />
     <Folder Include="wwwroot\login\lib\" />
   </ItemGroup>

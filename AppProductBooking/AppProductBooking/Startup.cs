@@ -1,13 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AppProductBooking
 {
@@ -48,9 +43,26 @@ namespace AppProductBooking
 
             app.UseEndpoints(endpoints =>
             {
+                #region [AreaRegistrationDefault]
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
+                #endregion
+
+                #region [AreaRegistration]
+                endpoints.MapAreaControllerRoute(
+                    name: "",
+                    areaName: "Manager",
+                    pattern: "{controller}/{action}"
+                );
+
+                endpoints.MapAreaControllerRoute(
+                    name: "",
+                    areaName: "Requesting",
+                    pattern: "{controller}/{action}"
+                );
+                #endregion
             });
         }
     }

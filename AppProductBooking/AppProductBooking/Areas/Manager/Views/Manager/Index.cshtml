@@ -1,8 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
-@{
-
-
+﻿@{
+    ViewData["Title"] = "Manager Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link href="~/areas/manager/css/cssmanager.css" rel="stylesheet" />
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="container-fluid">
+
+    <div class="row">
+         <div class="col-md-12 text-center">
+            <h2 class="text-info">PideloPues - </h2>
+        </div>
+
+        <div class="col-md-12 text-center">
+            <h2 class="text-white"> Aplicación que permite gestionar compras grupales.</h2>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row mb-4">
+        <div class="col-md-12 text-center">
+            <h3 class="text-warning">Ingrese su correo electrónico para crear un ambiente.</h3>
+        </div>
+
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-8">
+            <input id="txtEmailManager" class="form-control form-control-lg" type="text" placeholder="" aria-label="" style="height:60px">
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-center">
+            <button id="btnBackManager" class="btn btn-lg btn-danger mr-1" style="">Regresar</button>
+            <button id="btnNextManager" class="btn btn-lg btn-success ml-1" style="">Siguiente</button>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    //var UrlContent = Url.Content("~/");
+</script>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/ns/ns.js"></script>
+
+<script src="~/areas/manager/js/index/index.js"></script>
+<script src="~/areas/manager/js/index/controller.js"></script>
+
