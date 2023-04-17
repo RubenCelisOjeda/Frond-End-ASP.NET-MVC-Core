@@ -14,6 +14,12 @@ AppProductBooking.Manager.Index.Controller = function () {
 
     base.Parameters = {
 
+        ValidateEmail: function (email) {
+            var data = {
+                Email: email,
+            };
+            return data;
+        },
 
     };
 
@@ -48,11 +54,30 @@ AppProductBooking.Manager.Index.Controller = function () {
             if (!base.Validation.EmailManager()) {
                 toastr.success("Ingreso correctamente,espere un momento...","Completado");
             }
-        }
+        },
     };
 
     base.Ajax = {
 
+        ExistsEmail: function (pEntidad) {
+            $.ajax({
+                url: base.Validation.UrlContent + "Manager/ExistsEmail",
+                data: pEntidad,
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    var objData = jQuery.parseJSON(response);
+                    debugger;
+                },
+                failure: function (msg) {
+                    console.log("entro a la funcion failure");
+                    console.log(msg);
+                },
+                error: function () {
+                    console.log("ERROR: No se ha podido obtener la información");
+                },
+            });
+        },
 
     };
 
@@ -70,7 +95,7 @@ AppProductBooking.Manager.Index.Controller = function () {
         IsValidEmail: function (email) {
             var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return regex.test(email);
-        }
+        },
     };
 
     base.Validation = {
@@ -89,7 +114,7 @@ AppProductBooking.Manager.Index.Controller = function () {
                 base.Control.TxtEmailManager().focus();
                 toastr.info("El correo electrónico ingresado es inválido.", "Validación");
             }
-            else if (!base.Function.IsValidEmail(email)) {
+            else if (base.Ajax.ExistsEmail(email)) {
                 isCorrect = true;
                 base.Control.TxtEmailManager().focus();
                 toastr.info("El correo electrónico ya esta registado,intente con otro.", "Validación");
