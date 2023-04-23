@@ -10,7 +10,6 @@
     <Folder Include="Areas\Home\Service\" />
     <Folder Include="Areas\Home\Service\" />
     <Folder Include="Areas\Manager\Models\" />
-    <Folder Include="Areas\Manager\Service\" />
     <Folder Include="Areas\Requesting\Models\" />
     <Folder Include="Areas\Requesting\Service\" />
     <Folder Include="wwwroot\login\css\" />

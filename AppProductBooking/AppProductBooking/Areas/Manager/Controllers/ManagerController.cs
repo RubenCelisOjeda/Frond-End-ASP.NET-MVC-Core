@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppProductBooking.Areas.Manager.Service;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AppProductBooking.Areas.Manager.Controllers
 {
@@ -10,18 +11,27 @@ namespace AppProductBooking.Areas.Manager.Controllers
         #endregion
 
         #region [Construtor]
+        public ManagerController()
+        {
 
+        }
         #endregion
 
         #region [ActionResult]
         public IActionResult Index()
         {
+            this.ExistsEmail("sistemas.celis@gmail.com");
             return View();
         }
         #endregion
 
-        #region [Methods]
-
+        #region [ActionResult]
+        [HttpGet]
+        public JsonResult ExistsEmail(string email)
+        {
+            var response = ManagerService.ExistsEmail(email);
+            return Json(response);
+        }
         #endregion
     }
 }

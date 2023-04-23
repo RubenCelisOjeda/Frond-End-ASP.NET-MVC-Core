@@ -1,6 +1,6 @@
 ﻿namespace AppProductBooking.Util
 {
-    public class Response<T> where T : class, new()
+    public class BaseResponse<T>
     {
         /// <summary>
         /// Codigo de error

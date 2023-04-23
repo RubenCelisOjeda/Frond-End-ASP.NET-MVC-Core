@@ -1,14 +1,24 @@
-﻿using Newtonsoft.Json;
-using System.Net.Http.Headers;
-using System.Net.Http;
-using System.Text;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace AppProductBooking.Util
 {
     public class ApiService
     {
         #region [Properties]
+        /// <summary>
+        /// <param name="_mediaType">Tipo de datos por la cual se enviaran los datos</param>
+        /// <param name="_serviceUrl">Direccion URL del Servicio Rest proporcionado>
+        /// <returns>Retorna los datos de la persona con el ingreso que se encontro.</returns>
+        private const string _mediaType = "application/json";
+
+        #region [ApiUrl]
+        private static readonly string ApiUrlBase = "https://localhost:44327/api/";
+        #endregion
 
         #endregion
 
@@ -21,26 +31,18 @@ namespace AppProductBooking.Util
 
         #region [Api Service]
         /// <summary>
-        /// <param name="_mediaType">Tipo de datos por la cual se enviaran los datos</param>
-        /// <param name="_serviceUrl">Direccion URL del Servicio Rest proporcionado>
-        /// <returns>Retorna los datos de la persona con el ingreso que se encontro.</returns>
-        private const string _mediaType = "application/json";
-        //private readonly string _serviceUrl = ConfigurationManager.AppSettings["ServicioRestApi"].ToString();
-        private readonly string _serviceUrl = "";
-
-        /// <summary>
         /// Devuelve una Lista Generica con los datos solicitado desde la URL que se especifico
         /// </summary>
         /// <param name="pPath">Ruta interna del servicio</param>
         /// <returns>Retorna los datos de la entidad.</returns>
-        public T GetAsync<T>(string pPath) where T : class, new()
+        public static T GetAsync<T>(string pPath)
         {
             try
             {
                 var responseBody = string.Empty;
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(_serviceUrl);
+                    client.BaseAddress = new Uri(ApiUrlBase);
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_mediaType));
 
                     var response = client.GetAsync(pPath).Result;
@@ -65,7 +67,7 @@ namespace AppProductBooking.Util
         /// <param name="pPath">Ruta interna del servicio</param>
         /// <param name="pObj">Objeto de datos</param>
         /// <returns>Retorna mensaje de confirmacion.</returns>
-        public T PostAsync<T>(string pPath, object pObj)
+        public static T PostAsync<T>(string pPath, object pObj)
         {
             try
             {
@@ -73,7 +75,7 @@ namespace AppProductBooking.Util
                 T item;
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(_serviceUrl);
+                    client.BaseAddress = new Uri(ApiUrlBase);
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_mediaType));
 
                     var postBody = new StringContent(JsonConvert.SerializeObject(pObj).ToString(),
@@ -98,23 +100,23 @@ namespace AppProductBooking.Util
         /// <param name="pPath">Ruta interna del servicio</param>
         /// <param name="pObj">Objeto de datos</param>
         /// <returns>Retorna mensaje de confirmacion.</returns>
-        public T DeleteAsync<T>(string path)
+        public static T DeleteAsync<T>(string path)
         {
             try
             {
                 var responseBody = string.Empty;
-
                 T item;
+
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(_serviceUrl);
+                    client.BaseAddress = new Uri(ApiUrlBase);
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_mediaType));
-
 
                     var response = client.DeleteAsync(path).Result;
                     response.EnsureSuccessStatusCode();
                     responseBody = response.Content.ReadAsStringAsync().Result;
                 }
+
                 item = JsonConvert.DeserializeObject<T>(responseBody);
                 return item;
             }

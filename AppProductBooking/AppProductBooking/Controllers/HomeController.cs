@@ -8,9 +8,8 @@ namespace AppProductBooking.Controllers
     public class HomeController : Controller
     {
         #region [Properties]
-
-        #endregion
         private readonly ILogger<HomeController> _logger;
+        #endregion
 
         #region [Constructor]
         public HomeController(ILogger<HomeController> logger)

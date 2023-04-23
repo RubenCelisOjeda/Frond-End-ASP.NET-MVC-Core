@@ -54,13 +54,13 @@ namespace AppProductBooking
                 endpoints.MapAreaControllerRoute(
                     name: "",
                     areaName: "Manager",
-                    pattern: "{controller}/{action}"
+                    pattern: "{controller}/{action}/{id?}"
                 );
 
                 endpoints.MapAreaControllerRoute(
                     name: "",
                     areaName: "Requesting",
-                    pattern: "{controller}/{action}"
+                    pattern: "{controller}/{action}/{id?}"
                 );
                 #endregion
             });
