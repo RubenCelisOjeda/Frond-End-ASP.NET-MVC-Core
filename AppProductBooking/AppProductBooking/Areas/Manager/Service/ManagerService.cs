@@ -1,5 +1,4 @@
 ﻿using AppProductBooking.Util;
-using Microsoft.Extensions.Configuration;
 
 namespace AppProductBooking.Areas.Manager.Service
 {
@@ -28,7 +27,7 @@ namespace AppProductBooking.Areas.Manager.Service
             #endregion
 
             #region [Validation]
-            if (responseApi.CodigoError == "1")
+            if (responseApi.CodigoError == "0")
             {
 
             }
